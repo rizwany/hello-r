@@ -15,6 +15,13 @@ attributes(m)
 dim(m) <- c(3,2)
 m
 
+m2 = matrix(1:6, 2, 3)
+m
+m2[2,2]
+m[,2]
+
+m[1,, drop=FALSE]
+
 # ----------
 
 x <- 1:3
@@ -81,3 +88,35 @@ m <- matrix(1:4, nrow =2, ncol = 2)
 dimnames(m) <- list(c("r1", "r2"), c("c1", "c2"))
 m
 
+#subseting list
+w <- list(weekday = 1:4, rain_prob = 0.6)
+w[1]
+w[[1]]
+w$rain_prob
+w[["rain_prob"]]
+w["rain_prob"]
+
+w <- list(weekday = 1:4, rain_prob = 0.6, item = "Umbrella")
+w[c(1, 3)]
+name <- "weekday"
+w[[name]]
+w$name #wont work
+w$weekday
+
+#Nested List
+a <- list(a= list(10,12,14), b=list(3.4, 2.8))
+a[[c(1,3)]]
+a[[c(2,1)]]
+
+#Remove NA values
+x <- c(1, 2, NA, 4, NA, 5)
+bad <- is.na(x)
+bad
+x[!bad]
+
+x <- c(1,2,NA,4,NA,6)
+y <- c("a","b",NA,"d","NA","f")
+good <- complete.cases(x, y)
+good
+x[good]
+y[good]
